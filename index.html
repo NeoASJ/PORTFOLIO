@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUSH S J - Data Scientist Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom colors for Tailwind configuration, matching vid.html's neon green */
+        .bg-neon-green { background-color: hsl(133, 70%, 50%); }
+        .hover-neon-green:hover { background-color: hsl(133, 80%, 60%); }
+        .text-neon-green { color: hsl(133, 70%, 50%); }
+        .border-neon-green { border-color: hsl(133, 70%, 50%); }
+
+        /* General font applied via Tailwind in body class below, but also here for consistency */
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes popOut3D {
+    from {
+        opacity: 0;
+        transform: perspective(600px) rotateY(15deg) scale(0.9); /* Slight rotation and scale */
+    }
+    to {
+        opacity: 1;
+        transform: perspective(600px) rotateY(0deg) scale(1); /* No rotation, normal scale */
+    }
+}
+
+.animate-pop-out-3d {
+    animation: popOut3D 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Custom bezier for bounce-like feel */
+}
+ .accordion-content {
+            max-height: 0; /* Content is initially collapsed */
+            overflow: hidden; /* Hides content that exceeds max-height */
+            opacity: 0; /* Content is initially fully transparent */
+            transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out; /* Smooth animation for both properties */
+        }
+
+        /* This class is added by JavaScript to reveal the content */
+        .accordion-content.open {
+            /* IMPORTANT: Adjust this value if your content is taller than 600px! */
+            max-height: 600px; /* Increased from 500px to accommodate two entries better */
+            opacity: 1; /* Makes content fully visible */
+        }
+
+        /* Styles for the clickable header area */
+        .accordion-header {
+            cursor: pointer; /* Changes cursor to a pointer to indicate clickable area */
+            user-select: none; /* Prevent text selection on rapid clicks */
+        }
+
+        /* Styles for the dropdown icon */
+        .accordion-toggle-icon {
+            transition: transform 0.3s ease-in-out; /* Smooth rotation for the icon */
+        }
+
+        /* This class is added by JavaScript to rotate the icon when content is open */
+        .accordion-header.open .accordion-toggle-icon {
+            transform: rotate(180deg); /* Rotates the chevron down to point up when open */
+        }
+
+     
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-800 min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md py-4 px-6 z-40 border-b border-gray-200 transition-colors duration-500 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-900 transition-colors duration-500 ease-in-out" id="header-logo">Anush S J</h1>
+            <nav class="flex gap-6 items-center">
+                <ul class="flex space-x-6">
+                    <li><a href="#hero" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">About</a></li>
+                    <li><a href="#skills" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Skills</a></li>
+                    <li><a href="#experience" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Experience</a></li>
+                    <li><a href="#projects" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Projects</a></li>
+                    <li>
+                        <a href="https://github.com/NeoASJ" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium" target="_blank" rel="noopener noreferrer">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:8px;">
+                        Github
+                        </a>
+                    </li>
+
+
+
+                    
+
+                    <li>
+                          <a href="#contact" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">
+                            <img src="https://github.com/NeoASJ.png" alt="NeoASJ GitHub Profile" style="width:40px; height:40px; border-radius:50%; display:inline-block; vertical-align:middle;">
+                               Contact
+                          </a>
+                    </li>
+
+                    
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section min-h-screen flex items-center justify-center text-center px-4 py-24 bg-white reveal transition-colors duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-4">
+
+            <div class="md:w-3/5 text-center md:text-left">
+                <p class="text-xl text-gray-600 mb-3">Hello, I'm</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 leading-tight">Anush S J</h2>
+                <h1 id="typewriter-text" class="text-6xl md:text-7xl font-extrabold text-neon-green mb-8 leading-tight min-h-[1.2em]"></h1>
+                <div class="text-lg text-gray-700 leading-relaxed md:pr-8">
+                    <p class="mb-4">
+                        I am a highly motivated and analytical Data Scientist with a strong foundation in machine learning,
+                        statistical modeling, and data visualization.
+                        My passion lies in extracting meaningful patterns from large datasets and developing data-driven strategies that solve real-world problems.
+                        <br><br>
+                        With expertise in Python, R, SQL, and various data analysis libraries,
+                        I thrive in dynamic environments where I can leverage my skills to contribute to impactful projects.
+                        I am constantly learning and adapting to new technologies and methodologies in the ever-evolving field of data science.
+                        <br><br>
+                        Outside of work, I enjoy exploring new hiking trails, reading about emerging tech, and contributing to open-source data science projects. I am always open to collaborating on interesting data challenges!
+                    </p>
+                </div>
+            </div>
+
+            <img src="newpht.jpg" alt="Profile Photo" class="w-80 h-auto md:w-96 object-contain shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pop-out-3d">
+        </div>
+    </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t-4 border-neon-green">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">My Skills</h2>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10">
+            <button data-filter="all" class="filter-btn bg-neon-green text-white px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-300 shadow-md">All Skills</button>
+            <button data-filter="programming" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">Programming</button>
+            <button data-filter="ml" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">Machine Learning</button>
+            <button data-filter="data-viz" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">Data Viz</button>
+            <button data-filter="web-development" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">Web Development</button>
+            <button data-filter="vcs" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">VCS</button>
+            <button data-filter="cloud" class="filter-btn bg-gray-200 text-gray-700 px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-300 transition-colors duration-300 shadow-sm">Cloud</button>
+        </div>
+
+        <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 max-w-6xl mx-auto">
+
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="programming">
+                <img src="Gemini_Generated_Image_t03azst03azst03a.png" alt="Python Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Python</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="programming">
+                <img src="r.jpg" alt="R Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">R</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="programming">
+                <img src="Gemini_Generated_Image_oz16hboz16hboz16.png" alt="SQL Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">SQL</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="ml">
+                <img src="Gemini_Generated_Image_p6k1bkp6k1bkp6k1.png" alt="Deep Learning Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Deep Learning</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="ml">
+                <img src="NUM.png" alt="Numpy Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Numpy</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="ml">
+                <img src="PANDA.png" alt="Pandas Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Pandas</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="ml">
+                <img src="torch.jpg" alt="Pytorch Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Pytorch</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="ml">
+                <img src="tensor.jpg" alt="TensorFlow Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">TensorFlow</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="web-development">
+                <img src="dj.png" alt="Django Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Django</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="web-development">
+                <img src="flask.png" alt="Flask Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Flask</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="data-viz">
+                <img src="TABLU.png" alt="Tableau Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Tableau</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="data-viz">
+                <img src="Gemini_Generated_Image_n51lnxn51lnxn51l.png" alt="Power BI Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Power BI</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="data-viz">
+                <img src="Gemini_Generated_Image_geg7bogeg7bogeg7.png" alt="Matplotlib Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Matplotlib</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="cloud">
+                <img src="Gemini_Generated_Image_hsqpxwhsqpxwhsqp.png" alt="AWS Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">AWS</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="cloud">
+                <img src="cloud.jpg" alt="Google Cloud Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Google Cloud</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="vcs">
+                <img src="GITHUB.jpg" alt="Github Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Github</p>
+            </div>
+            <div class="skill-item p-4 bg-white rounded-lg shadow-md flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl hover:scale-105 opacity-100 transform" data-category="vcs">
+                <img src="GIT.png" alt="Git Logo" class="w-16 h-16 mb-2 object-contain">
+                <p class="font-semibold text-gray-800">Git</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-24 bg-gray-50 text-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <div id="educationHeaderContainer" class="accordion-header flex justify-center items-center gap-3 mb-6 cursor-pointer">
+                <h2 class="text-4xl font-extrabold text-gray-900">Education</h2>
+                <svg id="toggleIcon" class="accordion-toggle-icon w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+
+            <div id="educationContent" class="accordion-content">
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-8"> <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        Degree : Bachelor of Science (Physics,Maths,Statistics)
+                    </h3>
+                    <p class="text-xl text-gray-700 mb-2">
+                        <span class="font-semibold">College Name:</span> PoornaPrajna College , Udupi
+                    </p>
+                    <p class="text-xl text-gray-700">
+                        <span class="font-semibold">Percentage:</span> 83%
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        Graduated in 2023
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        Master's : Data Science
+                    </h3>
+                    <p class="text-xl text-gray-700 mb-2">
+                        <span class="font-semibold">College Name:</span> Aimit (st.Aloysius) ,beeri, Mangalore
+                    </p>
+                    <p class="text-xl text-gray-700">
+                        <span class="font-semibold">First year :</span> 8.56 CGPA
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        Currently pursuing
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t-4 border-neon-green reveal transition-colors duration-500 ease-in-out">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">My Projects</h2>
+        <div class="filter-buttons flex flex-wrap justify-center gap-4 mb-12">
+            <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors active:bg-neon-green active:text-white" data-filter="all">All</button>
+            <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="ml">Machine Learning</button>
+            <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="nlp">NLP</button>
+            <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="viz">Visualization</button>
+            <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="cloud">Cloud/Big Data</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="project-card bg-white p-5 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative" data-category="ml">
+                <div class="relative mb-4">
+                    <img src="Gemini_Generated_Image_yi826yyi826yyi82.png" alt="Neo Sync Project Visual" class="w-full h-40 object-cover rounded-lg border border-gray-300">
+                    <span class="absolute top-0 left-0 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-br-lg rounded-tl-xl z-10">2023</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Neo Sync</h3> 
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3"> 
+                    Neo Sync is a responsive music system built HTML, CSS, and JavaScript.It offers intuitive playback controls,creating a seamless and engaging  listening experience.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 justify-center sm:justify-start">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">HTML</span>
+                    <span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full">CSS</span>
+                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded-full">JavaScript</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://github.com/NeoASJ/NeoASJ.github.io" target="_blank" class="button small-button bg-gray-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">GitHub</span>
+                    </a>
+                    <a href="https://neoasj.github.io/" target="_blank" class="button small-button bg-neon-green text-white px-4 py-2 rounded-lg text-sm hover:bg-neon-green/90 transition-all duration-300 flex items-center">
+                        <i class="fas fa-external-link-alt text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">Demo</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white p-5 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative" data-category="cloud bigdata">
+                <div class="relative mb-4">
+                    <img src="Gemini_Generated_Image_t0agdet0agdet0ag.png" alt="" class="w-full h-40 object-cover rounded-lg border border-gray-300">
+                    <span class="absolute top-0 left-0 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-br-lg rounded-tl-xl z-10">2024</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Unlocking Mobile Satisfaction: A Flipkart Analysis</h3> 
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3"> 
+                    Analyzing Flipkart mobile data (specs & reviews), this project found customer satisfaction extends beyond just RAM/ROM.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 justify-center sm:justify-start">
+                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full">vaderSentiment</span>
+                    <span class="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">Pandas</span>
+                    
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://github.com/NeoASJ/Flipkart_sentiment_analysis_of-_trending_mobiles" target="_blank" class="button small-button bg-gray-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">GitHub</span>
+                    </a>
+                    
+                </div>
+            </div>
+
+            <div class="project-card bg-white p-5 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative" data-category="nlp">
+                <div class="relative mb-4">
+                    <img src="https://via.placeholder.com/400x180?text=Legal+Summarizer+Preview" alt="Legal Document Summarizer Visual" class="w-full h-40 object-cover rounded-lg border border-gray-300">
+                    <span class="absolute top-0 left-0 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-br-lg rounded-tl-xl z-10">2024</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Legal Document Summarizer</h3> 
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3"> 
+                    Developed an NLP model to generate concise summaries of legal documents, significantly reducing review time. Utilized abstractive summarization techniques.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 justify-center sm:justify-start">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-0.5 rounded-full">Transformers</span>
+                    <span class="bg-pink-100 text-pink-800 text-xs px-2 py-0.5 rounded-full">SpaCy</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://github.com/yourusername/legal-summarizer-repo" target="_blank" class="button small-button bg-gray-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">GitHub</span>
+                    </a>
+                    <a href="https://your-demo-link.com/legal-summarizer" target="_blank" class="button small-button bg-neon-green text-white px-4 py-2 rounded-lg text-sm hover:bg-neon-green/90 transition-all duration-300 flex items-center">
+                        <i class="fas fa-external-link-alt text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">Demo</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white p-5 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative" data-category="cloud bigdata">
+                <div class="relative mb-4">
+                    <img src="Gemini_Generated_Image_xuh39bxuh39bxuh3.png" alt="Movie Review Sentiment Analysisl" class="w-full h-40 object-cover rounded-lg border border-gray-300">
+                    <span class="absolute top-0 left-0 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-br-lg rounded-tl-xl z-10">2024</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Movie Review Sentiment Analysis</h3> 
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3"> 
+                    Leveraging NLTK and TF-IDF, a Python sentiment analyzer was developed and deployed as a Streamlit web app for instant movie review classification
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 justify-center sm:justify-start">
+                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full">Streamlit</span>
+                    <span class="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">Nltk</span>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded-full">TF-IDF vectorizer</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://github.com/NeoASJ/review-sentiment-analysis" target="_blank" class="button small-button bg-gray-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">GitHub</span>
+                    </a>
+                    <a href="https://imdb-neoasj.streamlit.app/" target="_blank" class="button small-button bg-neon-green text-white px-4 py-2 rounded-lg text-sm hover:bg-neon-green/90 transition-all duration-300 flex items-center">
+                        <i class="fas fa-external-link-alt text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">Demo</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card bg-white p-5 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] relative" data-category="viz">
+                <div class="relative mb-4">
+                    <img src="Gemini_Generated_Image_ldfb6cldfb6cldfb.png" alt="Interactive Climate Data Explorer Visual" class="w-full h-40 object-cover rounded-lg border border-gray-300">
+                    <span class="absolute top-0 left-0 bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-br-lg rounded-tl-xl z-10">2024</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Inventory Management System</h3> 
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3"> 
+                    This Python Tkinter app provides inventory management, allowing users to add, update, delete, and check item details like name,quantity and  stock value
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4 justify-center sm:justify-start">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full">Tkinter</span>
+                    
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="https://github.com/NeoASJ/Inventory-management-system" target="_blank" class="button small-button bg-gray-700 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">GitHub</span>
+                    </a>
+                    <a href="https://youtu.be/-d9LMpXEnCE?si=l3eT2EZAhSvEGBW9" target="_blank" class="button small-button bg-neon-green text-white px-4 py-2 rounded-lg text-sm hover:bg-neon-green/90 transition-all duration-300 flex items-center">
+                        <i class="fas fa-external-link-alt text-base"></i>
+                        <span class="ml-2 hidden sm:inline-block">Demo</span>
+                    </a>
+                </div>
+            </div>
+            
+
+            </div>
+    </div>
+</section>
+        
+        <section id="mini-projects" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">Mini Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="mini-project-card bg-white p-6 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Library Management System</h3>
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3">
+                    This Python class-based system efficiently manages library operations, including user/book details, borrowing, returns, and tracking availability/history
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded-full">OOPS</span>
+                </div>
+                <div class="flex justify-center sm:justify-start gap-2">
+                    <a href="https://github.com/NeoASJ/library-management-system" target="_blank" class="button small-button bg-gray-700 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2">GitHub</span>
+                    </a>
+                    </div>
+            </div>
+
+            <div class="mini-project-card bg-white p-6 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Contact List System</h3>
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3">
+                    My Python contact management system offers persistent, user-friendly contact management (add, view, search, update, delete) with JSON storage and partial name search.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-0.5 rounded-full">OOPS</span>
+                </div>
+                <div class="flex justify-center sm:justify-start gap-2">
+                    <a href="https://github.com/NeoASJ/contact-list-system" target="_blank" class="button small-button bg-gray-700 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2">GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mini-project-card bg-white p-6 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Banking System</h3>
+                <p class="text-gray-700 text-sm mb-4 line-clamp-3">
+                    Using Python classes, this banking system efficiently manages accounts (create, deposit, withdraw, view, remove), demonstrating core OOP and static methods.
+                </p>
+                <div class="flex flex-wrap gap-1 mb-4">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">Python</span>
+                    <span class="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">Class & Objects</span>
+                </div>
+                <div class="flex justify-center sm:justify-start gap-2">
+                    <a href="https://github.com/NeoASJ/Banking-System" target="_blank" class="button small-button bg-gray-700 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-gray-800 transition-all duration-300 flex items-center">
+                        <i class="fab fa-github text-base"></i>
+                        <span class="ml-2">GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            </div>
+    </div>
+</section>
+        
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t-4 border-neon-green reveal transition-colors duration-500 ease-in-out">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">Get in Touch</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-12">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+                <form id="contact-form" class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-colors duration-500 ease-in-out">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-800 text-lg font-medium mb-2">Name:</label>
+                        <input type="text" id="name" name="name" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Email:</label>
+                        <input type="email" id="email" EXP="email" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="subject" class="block text-gray-800 text-lg font-medium mb-2">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="message" class="block text-gray-800 text-lg font-medium mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="6" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 resize-y min-h-[150px] transition-colors duration-300"></textarea>
+                    </div>
+                    <button type="submit" class="button primary-button bg-neon-green text-white px-10 py-4 rounded-xl shadow-lg hover:bg-neon-green/90 transition-all duration-300">Send Message</button>
+                    <div id="form-messages" class="mt-6 text-lg font-semibold hidden"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neon-green text-white py-12 text-center transition-colors duration-500 ease-in-out">
+        <div class="container mx-auto">
+            <p class="mb-6">&copy; <span id="current-year"></span> Anush S J. All rights reserved.</p>
+            <div class="flex justify-center space-x-8">
+                <a href="#" target="_blank" aria-label="LinkedIn Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/NeoASJ" target="_blank" aria-label="GitHub Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" target="_blank" aria-label="Medium Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-medium"></i> Medium
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-neon-green text-white rounded-full p-4 shadow-lg z-50 transition-all duration-300 hover:bg-neon-green/90 hidden" title="Scroll to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </button>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+    <script>
+        // --- Typewriter Effect Script ---
+       const typewriterTextElement = document.getElementById('typewriter-text');
+const phrases = ["A Data Scientist", "An Analyst", "An ML Engineer", "A Strategist"];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let pauseTimeout = null;
+
+const typingSpeed = 100;
+const erasingSpeed = 100;
+const pauseAfterType = 1000;
+const pauseAfterErase = 100;
+
+function typeWriter() {
+    if (!typewriterTextElement) return;
+
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting && charIndex < currentPhrase.length) {
+        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        setTimeout(typeWriter, typingSpeed);
+    } else if (!isDeleting && charIndex === currentPhrase.length) {
+        // 🛑 Pause for 1 second before starting deletion
+        pauseTimeout = setTimeout(() => {
+            isDeleting = true;
+            setTimeout(typeWriter, erasingSpeed);
+        }, pauseAfterType);
+    } else if (isDeleting && charIndex > 0) {
+        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(typeWriter, erasingSpeed);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeWriter, pauseAfterErase);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (typewriterTextElement) {
+        setTimeout(typeWriter, 500);
+    }
+});
+        // --- Accordion (Click-to-Reveal) Script for Education Section ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize typewriter effect after a short delay
+            setTimeout(typeWriter, 1000);
+
+            const educationHeaderContainer = document.getElementById('educationHeaderContainer');
+            const educationContent = document.getElementById('educationContent');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            // Crucial check: Ensure all necessary elements are found before adding event listener
+            if (educationHeaderContainer && educationContent && toggleIcon) {
+                educationHeaderContainer.addEventListener('click', () => {
+                    // Toggle the 'open' class on the content div to trigger its visibility transition
+                    educationContent.classList.toggle('open');
+                    // Toggle the 'open' class on the header container to trigger the icon's rotation
+                    educationHeaderContainer.classList.toggle('open');
+                });
+            } else {
+                // Log an error if elements are not found, which helps in debugging
+                console.error("Accordion elements not found. Please ensure IDs 'educationHeaderContainer', 'educationContent', and 'toggleIcon' are correct in your HTML.");
+            }
+        });
+    </script>
+</body>
+</html>

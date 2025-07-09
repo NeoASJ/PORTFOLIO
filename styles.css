@@ -1,0 +1,222 @@
+/* Base Styles */
+:root {
+    --color-bg: #ffffff;
+    --color-text: #1a1a1a;
+    --color-header-bg: rgba(255, 255, 255, 0.9);
+    --color-card-bg: #f8fafc;
+    --color-border: #e2e8f0;
+    --color-input-bg: #f1f5f9;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    
+    --sk-color-bg: #0f172a;
+    --dark-color-text: #f8fafc;
+    --dark-color-header-bg: rgba(15, 23, 42, 0.9);
+    --dark-color-card-bg: #1e293b;
+    --dark-color-border: #334155;
+    --dark-color-input-bg: #334155;
+    --dark-color-shadow: rgba(0, 0, 0, 0.3);
+    
+    --neon-green: hsl(133, 70%, 50%);
+    --transition-duration: 300ms;
+}
+
+/* Transitions */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--transition-duration);
+}
+
+/* Dark Mode Classes */
+.dark {
+    background-color: var(--dark-color-bg);
+    color: var(--dark-color-text);
+}
+
+.dark .bg-white {
+    background-color: var(--dark-color-bg) !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: var(--dark-color-card-bg) !important;
+}
+
+.dark .text-gray-800,
+.dark .text-gray-700 {
+    color: var(--dark-color-text) !important;
+}
+
+.dark .border-gray-200 {
+    border-color: var(--dark-color-border) !important;
+}
+
+.dark .shadow-md {
+    box-shadow: 0 4px 6px -1px var(--dark-color-shadow), 
+                0 2px 4px -1px var(--dark-color-shadow) !important;
+}
+
+.dark .hover\:shadow-xl:hover {
+    box-shadow: 0 20px 25px -5px var(--dark-color-shadow),
+                0 10px 10px -5px var(--dark-color-shadow) !important;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--color-header-bg);
+    border-color: var(--color-border);
+}
+
+.dark header {
+    background-color: var(--dark-color-header-bg);
+    border-color: var(--dark-color-border);
+}
+
+/* Card Styles */
+.skill-item,
+.project-card,
+.contact-form {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
+}
+
+.dark .skill-item,
+.dark .project-card,
+.dark .contact-form {
+    background-color: var(--dark-color-card-bg);
+    border-color: var(--dark-color-border);
+}
+
+/* Form Styles */
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--color-input-bg);
+    border-color: var(--color-border);
+}
+
+.dark .contact-form input,
+.dark .contact-form textarea {
+    background-color: var(--dark-color-input-bg);
+    border-color: var(--dark-color-border);
+    color: var(--dark-color-text);
+}
+
+/* Skill Bars */
+.skill-bar {
+    background-color: #e2e8f0;
+}
+
+.dark .skill-bar {
+    background-color: #334155;
+}
+
+.skill-bar span {
+    background-color: var(--neon-green);
+}
+
+/* Neon Glow Animation */
+.neon-glow {
+    color: #39ff14;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px #39ff14,
+        0 0 10px #39ff14,
+        0 0 20px #39ff14,
+        0 0 40px #0fa;
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+    font-size: 3em;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 5px #39ff14,
+            0 0 10px #39ff14,
+            0 0 20px #39ff14,
+            0 0 40px #0fa;
+    }
+    to {
+        text-shadow:
+            0 0 10px #39ff14,
+            0 0 20px #39ff14,
+            0 0 40px #39ff14,
+            0 0 80px #0fa;
+    }
+}
+
+/* Active Navigation Link */
+nav ul li a.active {
+    color: var(--neon-green) !important;
+    font-weight: 600;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    header nav ul li {
+        margin: 0 0.75rem 0.5rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 2.8rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+    }
+}
+.right-image {
+            float: right;
+            margin-left: 20px; /* Optional: Add some space to the left of the image */
+            margin-bottom: 10px; /* Optional: Add space below the image */
+        }
+
+/* Example CSS for a simple fade-in effect with JS */
+.project-card.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}

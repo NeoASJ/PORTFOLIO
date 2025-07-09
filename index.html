@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUSH S J - Data Scientist Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom colors for Tailwind configuration, matching vid.html's neon green */
+        .bg-neon-green { background-color: hsl(133, 70%, 50%); }
+        .hover-neon-green:hover { background-color: hsl(133, 80%, 60%); }
+        .text-neon-green { color: hsl(133, 70%, 50%); }
+        .border-neon-green { border-color: hsl(133, 70%, 50%); }
+
+        /* General font applied via Tailwind in body class below, but also here for consistency */
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes popOut3D {
+    from {
+        opacity: 0;
+        transform: perspective(600px) rotateY(15deg) scale(0.9); /* Slight rotation and scale */
+    }
+    to {
+        opacity: 1;
+        transform: perspective(600px) rotateY(0deg) scale(1); /* No rotation, normal scale */
+    }
+}
+
+.animate-pop-out-3d {
+    animation: popOut3D 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Custom bezier for bounce-like feel */
+}
+ .accordion-content {
+            max-height: 0; /* Content is initially collapsed */
+            overflow: hidden; /* Hides content that exceeds max-height */
+            opacity: 0; /* Content is initially fully transparent */
+            transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out; /* Smooth animation for both properties */
+        }
+
+        /* This class is added by JavaScript to reveal the content */
+        .accordion-content.open {
+            /* IMPORTANT: Adjust this value if your content is taller than 600px! */
+            max-height: 600px; /* Increased from 500px to accommodate two entries better */
+            opacity: 1; /* Makes content fully visible */
+        }
+
+        /* Styles for the clickable header area */
+        .accordion-header {
+            cursor: pointer; /* Changes cursor to a pointer to indicate clickable area */
+            user-select: none; /* Prevent text selection on rapid clicks */
+        }
+
+        /* Styles for the dropdown icon */
+        .accordion-toggle-icon {
+            transition: transform 0.3s ease-in-out; /* Smooth rotation for the icon */
+        }
+
+        /* This class is added by JavaScript to rotate the icon when content is open */
+        .accordion-header.open .accordion-toggle-icon {
+            transform: rotate(180deg); /* Rotates the chevron down to point up when open */
+        }
+
+     
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-800 min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md py-4 px-6 z-40 border-b border-gray-200 transition-colors duration-500 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-900 transition-colors duration-500 ease-in-out" id="header-logo">Anush S J</h1>
+            <nav class="flex gap-6 items-center">
+                <ul class="flex space-x-6">
+                    <li><a href="#hero" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">About</a></li>
+                    <li><a href="#skills" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Skills</a></li>
+                    <li><a href="#experience" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Experience</a></li>
+                    <li><a href="#projects" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">Projects</a></li>
+                    <li>
+                        <a href="https://github.com/NeoASJ" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium" target="_blank" rel="noopener noreferrer">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:8px;">
+                        Github
+                        </a>
+                    </li>
+
+
+
+                    
+
+                    <li>
+                          <a href="#contact" class="text-gray-700 hover:text-neon-green transition-colors text-lg font-medium">
+                            <img src="https://github.com/NeoASJ.png" alt="NeoASJ GitHub Profile" style="width:40px; height:40px; border-radius:50%; display:inline-block; vertical-align:middle;">
+                               Contact
+                          </a>
+                    </li>
+
+                    
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section min-h-screen flex items-center justify-center text-center px-4 py-24 bg-white reveal transition-colors duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 px-4">
+
+            <div class="md:w-3/5 text-center md:text-left">
+                <p class="text-xl text-gray-600 mb-3">Hello, I'm</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-2 leading-tight">Anush S J</h2>
+                <h1 id="typewriter-text" class="text-6xl md:text-7xl font-extrabold text-neon-green mb-8 leading-tight min-h-[1.2em]"></h1>
+                <div class="text-lg text-gray-700 leading-relaxed md:pr-8">
+                    <p class="mb-4">
+                        I am a highly motivated and analytical Data Scientist with a strong foundation in machine learning,
+                        statistical modeling, and data visualization.
+                        My passion lies in extracting meaningful patterns from large datasets and developing data-driven strategies that solve real-world problems.
+                        <br><br>
+                        With expertise in Python, R, SQL, and various data analysis libraries,
+                        I thrive in dynamic environments where I can leverage my skills to contribute to impactful projects.
+                        I am constantly learning and adapting to new technologies and methodologies in the ever-evolving field of data science.
+                        <br><br>
+                        Outside of work, I enjoy exploring new hiking trails, reading about emerging tech, and contributing to open-source data science projects. I am always open to collaborating on interesting data challenges!
+                    </p>
+                </div>
+            </div>
+
+            <img src="newpht.jpg" alt="Profile Photo" class="w-80 h-auto md:w-96 object-contain shadow-xl transform transition-transform duration-300 hover:scale-105 animate-pop-out-3d">
+        </div>
+    </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t-4 border-neon-green reveal transition-colors duration-500 ease-in-out">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="skill-item bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Programming & Tools</h3>
+                        <ul class="text-left text-gray-700 space-y-3">
+                            <li class="flex items-center justify-between">Python <div class="skill-bar" data-level="95"><span></span></div></li>
+                            <li class="flex items-center justify-between">R <div class="skill-bar" data-level="80"><span></span></div></li>
+                            <li class="flex items-center justify-between">SQL <div class="skill-bar" data-level="90"><span></span></div></li>
+                            <li class="flex items-center justify-between">Git/GitHub <div class="skill-bar" data-level="85"><span></span></div></li>
+                            <li class="flex items-center justify-between">Jupyter/VS Code <div class="skill-bar" data-level="90"><span></span></div></li>
+                            <li class="flex items-center justify-between">Docker <div class="skill-bar" data-level="75"><span></span></div></li>
+                        </ul>
+                    </div>
+                    <div class="skill-item bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Machine Learning</h3>
+                        <ul class="text-left text-gray-700 space-y-3">
+                            <li class="flex items-center justify-between">Supervised Learning <div class="skill-bar" data-level="95"><span></span></div></li>
+                            <li class="flex items-center justify-between">Deep Learning <div class="skill-bar" data-level="88"><span></span></div></li>
+                            <li class="flex items-center justify-between">NLP <div class="skill-bar" data-level="85"><span></span></div></li>
+                            <li class="flex items-center justify-between">Computer Vision <div class="skill-bar" data-level="70"><span></span></div></li>
+                            <li class="flex items-center justify-between">Time Series Analysis <div class="skill-bar" data-level="82"><span></span></div></li>
+                            <li class="flex items-center justify-between">Model Evaluation <div class="skill-bar" data-level="93"><span></span></div></li>
+                        </ul>
+                    </div>
+                    <div class="skill-item bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Data Analysis & Visualization</h3>
+                        <ul class="text-left text-gray-700 space-y-3">
+                            <li class="flex items-center justify-between">EDA <div class="skill-bar" data-level="98"><span></span></div></li>
+                            <li class="flex items-center justify-between">Statistical Modeling <div class="skill-bar" data-level="90"><span></span></div></li>
+                            <li class="flex items-center justify-between">A/B Testing <div class="skill-bar" data-level="85"><span></span></div></li>
+                            <li class="flex items-center justify-between">Data Cleaning <div class="skill-bar" data-level="95"><span></span></div></li>
+                            <li class="flex items-center justify-between">Matplotlib/Seaborn <div class="skill-bar" data-level="90"><span></span></div></li>
+                            <li class="flex items-center justify-between">Tableau/Power BI <div class="skill-bar" data-level="80"><span></span></div></li>
+                        </ul>
+                    </div>
+                    <div class="skill-item bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Cloud & Big Data</h3>
+                        <ul class="text-left text-gray-700 space-y-3">
+                            <li class="flex items-center justify-between">AWS <div class="skill-bar" data-level="80"><span></span></div></li>
+                            <li class="flex items-center justify-between">GCP <div class="skill-bar" data-level="70"><span></span></div></li>
+                            <li class="flex items-center justify-between">Apache Spark <div class="skill-bar" data-level="78"><span></span></div></li>
+                            <li class="flex items-center justify-between">Hadoop <div class="skill-bar" data-level="65"><span></span></div></li>
+                            <li class="flex items-center justify-between">Data Warehousing <div class="skill-bar" data-level="85"><span></span></div></li>
+                            <li class="flex items-center justify-between">ETL Pipelines <div class="skill-bar" data-level="88"><span></span></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-24 bg-gray-50 text-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <div id="educationHeaderContainer" class="accordion-header flex justify-center items-center gap-3 mb-6 cursor-pointer">
+                <h2 class="text-4xl font-extrabold text-gray-900">Education</h2>
+                <svg id="toggleIcon" class="accordion-toggle-icon w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+
+            <div id="educationContent" class="accordion-content">
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-8"> <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        Degree : Bachelor of Science (Physics,Maths,Statistics)
+                    </h3>
+                    <p class="text-xl text-gray-700 mb-2">
+                        <span class="font-semibold">College Name:</span> PoornaPrajna College , Udupi
+                    </p>
+                    <p class="text-xl text-gray-700">
+                        <span class="font-semibold">Percentage:</span> 83%
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        Graduated in 2023
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                        Master's : Data Science
+                    </h3>
+                    <p class="text-xl text-gray-700 mb-2">
+                        <span class="font-semibold">College Name:</span> Aimit (st.Aloysius) ,beeri, Mangalore
+                    </p>
+                    <p class="text-xl text-gray-700">
+                        <span class="font-semibold">First year :</span> 8.56 CGPA
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        Currently pursuing
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t-4 border-neon-green reveal transition-colors duration-500 ease-in-out">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">My Projects</h2>
+                <div class="filter-buttons flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors active:bg-neon-green active:text-white" data-filter="all">All</button>
+                    <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="ml">Machine Learning</button>
+                    <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="nlp">NLP</button>
+                    <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="viz">Visualization</button>
+                    <button class="button small-button bg-gray-100 text-gray-700 px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-200 transition-colors" data-filter="cloud">Cloud/Big Data</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="ml">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Customer Churn Prediction</h3>
+                        <p class="text-gray-700 mb-6">Developed a machine learning model to predict customer churn for a telecom company using historical usage data. Achieved an accuracy of 92% with a Random Forest classifier.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="nlp">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Sentiment Analysis of Social Media</h3>
+                        <p class="text-gray-700 mb-6">Built an NLP pipeline to analyze sentiment from Twitter data regarding product reviews. Utilized BERT and LSTM models to classify sentiments as positive, negative, or neutral.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="ml viz">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Image Classification with CNNs</h3>
+                        <p class="text-gray-700 mb-6">Implemented a Convolutional Neural Network (CNN) in TensorFlow to classify images of various everyday objects. Achieved state-of-the-art results on a custom dataset.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="ml">
+                        <h3>Predictive Maintenance for Machinery</h3>
+                        <p class="text-gray-700 mb-6">Applied time series forecasting techniques and anomaly detection to predict equipment failures in a manufacturing plant, reducing downtime by 15%.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="ml cloud">
+                        <h3>Credit Card Fraud Detection</h3>
+                        <p class="text-gray-700 mb-6">Developed an unsupervised anomaly detection system using Isolation Forest to identify fraudulent credit card transactions, achieving high precision on imbalanced datasets.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="ml">
+                        <h3>Recommendation System for E-commerce</h3>
+                        <p class="text-gray-700 mb-6">Designed and implemented a hybrid recommendation system combining collaborative filtering and content-based approaches to personalize product suggestions for users.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="viz">
+                        <h3>Interactive Dashboard with D3.js</h3>
+                        <p class="text-gray-700 mb-6">Created a dynamic and interactive data visualization dashboard using D3.js to explore sales trends and customer demographics for a retail client.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                    <div class="project-card bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" data-category="nlp">
+                        <h3>Chatbot for Customer Service</h3>
+                        <p class="text-gray-700 mb-6">Developed a rule-based and machine learning-powered chatbot to answer common customer queries, improving response times and reducing support load.</p>
+                        <a href="#" class="button small-button bg-neon-green text-white px-6 py-3 rounded-lg hover:bg-neon-green/90 transition-all duration-300">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white border-t-4 border-neon-green reveal transition-colors duration-500 ease-in-out">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-neon-green mb-12">Get in Touch</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-12">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+                <form id="contact-form" class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200 transition-colors duration-500 ease-in-out">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-800 text-lg font-medium mb-2">Name:</label>
+                        <input type="text" id="name" name="name" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-800 text-lg font-medium mb-2">Email:</label>
+                        <input type="email" id="email" EXP="email" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="subject" class="block text-gray-800 text-lg font-medium mb-2">Subject:</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 transition-colors duration-300">
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="message" class="block text-gray-800 text-lg font-medium mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="6" required class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green focus:border-transparent bg-gray-50 text-gray-900 resize-y min-h-[150px] transition-colors duration-300"></textarea>
+                    </div>
+                    <button type="submit" class="button primary-button bg-neon-green text-white px-10 py-4 rounded-xl shadow-lg hover:bg-neon-green/90 transition-all duration-300">Send Message</button>
+                    <div id="form-messages" class="mt-6 text-lg font-semibold hidden"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neon-green text-white py-12 text-center transition-colors duration-500 ease-in-out">
+        <div class="container mx-auto">
+            <p class="mb-6">&copy; <span id="current-year"></span> Anush S J. All rights reserved.</p>
+            <div class="flex justify-center space-x-8">
+                <a href="#" target="_blank" aria-label="LinkedIn Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/NeoASJ" target="_blank" aria-label="GitHub Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="#" target="_blank" aria-label="Medium Profile" class="text-white hover:text-gray-200 transition-colors text-xl flex items-center gap-2">
+                    <i class="fab fa-medium"></i> Medium
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 bg-neon-green text-white rounded-full p-4 shadow-lg z-50 transition-all duration-300 hover:bg-neon-green/90 hidden" title="Scroll to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </button>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+    <script>
+        // --- Typewriter Effect Script ---
+        const typewriterTextElement = document.getElementById('typewriter-text');
+    const phrases = ["A Data Scientist", "An Analyst", "An Machine Learning Engineer", "A Strategist"]; //
+    let phraseIndex = 0; //
+    let charIndex = 0; //
+    let isDeleting = false; //
+
+// Adjustable timing variables for a smoother effect
+    const typingSpeed = 500;       // Speed of typing each character (milliseconds)
+    const erasingSpeed = 200;       // Speed of erasing each character (milliseconds)
+    const pauseAfterType = 4000;   // Pause after a word is fully typed (milliseconds)
+    const pauseAfterErase = 50;   // Pause after a word is fully erased (milliseconds)
+
+    function typeWriter() {
+    if (!typewriterTextElement) {
+        console.warn("Typewriter element not found. Skipping typewriter effect.");
+        return;
+    }
+
+    const currentPhrase = phrases[phraseIndex];
+    let displayText = currentPhrase;
+    let currentSpeed = typingSpeed;
+
+    if (isDeleting) {
+        displayText = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        currentSpeed = erasingSpeed;
+    } else {
+        displayText = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        currentSpeed = typingSpeed;
+    }
+
+    typewriterTextElement.textContent = displayText;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        // Word fully typed, now pause and then start deleting
+        isDeleting = true;
+        currentSpeed = pauseAfterType;
+    } else if (isDeleting && charIndex === 0) {
+        // Word fully erased, move to the next word and pause
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        currentSpeed = pauseAfterErase;
+    }
+
+    // Set charIndex for the next iteration based on whether we're typing or deleting
+    // This line was causing issues in your original logic, as charIndex was updated twice.
+    // It's better handled implicitly by the charIndex-- or charIndex++ above.
+    // However, if you prefer explicit control, ensure it's not double-applied.
+    // For this refined version, we rely on the charIndex++ / charIndex-- inside the if/else for typing/erasing.
+
+    setTimeout(typeWriter, currentSpeed);
+    }
+
+// Call the function to start the effect.
+// Ensure this part is only called once when the DOM content is loaded.
+// You have this call in both index.html and script.js, which is redundant.
+// It's recommended to keep it only in script.js.
+    if (typewriterTextElement) { //
+    // Start the effect after a short initial delay if needed
+    setTimeout(typeWriter, 500); // Initial delay before the first word starts typing
+    }
+        // --- Accordion (Click-to-Reveal) Script for Education Section ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize typewriter effect after a short delay
+            setTimeout(typeWriter, 1000);
+
+            const educationHeaderContainer = document.getElementById('educationHeaderContainer');
+            const educationContent = document.getElementById('educationContent');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            // Crucial check: Ensure all necessary elements are found before adding event listener
+            if (educationHeaderContainer && educationContent && toggleIcon) {
+                educationHeaderContainer.addEventListener('click', () => {
+                    // Toggle the 'open' class on the content div to trigger its visibility transition
+                    educationContent.classList.toggle('open');
+                    // Toggle the 'open' class on the header container to trigger the icon's rotation
+                    educationHeaderContainer.classList.toggle('open');
+                });
+            } else {
+                // Log an error if elements are not found, which helps in debugging
+                console.error("Accordion elements not found. Please ensure IDs 'educationHeaderContainer', 'educationContent', and 'toggleIcon' are correct in your HTML.");
+            }
+        });
+    </script>
+</body>
+</html>

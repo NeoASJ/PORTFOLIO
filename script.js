@@ -186,3 +186,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.filter-btn[data-filter="all"]').click();
     });
     
+   
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault(); // prevent real form submission
+      
+      // Simple validation check (you can extend this)
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && email && message) {
+        alert("Thank you! Your message has been sent.");
+        contactForm.reset(); // clear the form
+      } else {
+        alert("Please fill out all required fields.");
+      }
+    });
+  });
